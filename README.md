@@ -30,15 +30,15 @@ A specialized OCR (Optical Character Recognition) system for digitizing mechanic
 
 ### Setup
 
-1. Create and activate a virtual environment:
+#### 1. Create and activate a virtual environment:
 ```bash
 uv venv
 .venv/Scripts/activate
 ```
 
-2. Install eDOCr:
+#### 2. Install eDOCr:
 
-#### From Source
+**From Source:**
 ```bash
 git clone https://github.com/khoapmd/eDOCr
 cd eDOCr
@@ -79,6 +79,7 @@ python tests/test_drawing.py
 
 ```python
 import os
+import string
 from eDOCr import tools
 import cv2
 from skimage import io
@@ -234,7 +235,7 @@ train_recognizer.generate_n_train(
 
 ## Project Structure
 
-```
+```text
 eDOCr/
 ├── keras_ocr/          # Core OCR engine
 ├── keras_ocr_models/   # Model training and resources
@@ -261,5 +262,3 @@ For detailed implementation insights, refer to our research paper: [Optical char
 - This work was supported by Vinnova (Sweden) under grant 2021-02481, iPROD project
 - Based on the excellent [keras-ocr](https://github.com/faustomorales/keras-ocr) library
 
----
-> **Note**: For version 2 of eDOCr, please visit the [edocr2 repository](https://github.com/khoapmd/edocr2).
