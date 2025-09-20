@@ -17,23 +17,40 @@ tf.config.threading.set_inter_op_parallelism_threads(4)
 tf.config.threading.set_intra_op_parallelism_threads(4)
 
 dest_DIR='tests/test_Results'
-file_path='tests/test_samples/LIU0010.jpg'
+file_path='tests/test_samples/Candle_holder.jpg'
 filename=os.path.splitext(os.path.basename(file_path))[0]
 
 # Load and resize image with good quality
 img = cv2.imread(file_path)
 print(f"Original image size: {img.shape}")
 
-# Resize to a reasonable size that maintains readability
+# Resize to a reasonable size that maintains readability and model compatibility
 h, w = img.shape[:2]
 max_size = 1200
+
+# Ensure dimensions are divisible by 32 (common requirement for deep learning models)
+def make_divisible_by_32(size):
+    return ((size + 31) // 32) * 32
+
 if max(h, w) > max_size:
     scale = max_size / max(h, w)
     new_h, new_w = int(h * scale), int(w * scale)
-    img = cv2.resize(img, (new_w, new_h), interpolation=cv2.INTER_CUBIC)
-    print(f"Resized image to: {img.shape} (maintaining good quality)")
 else:
-    print("Image size is already reasonable")
+    new_h, new_w = h, w
+
+# Ensure dimensions are divisible by 32 for model compatibility
+new_h = make_divisible_by_32(new_h)
+new_w = make_divisible_by_32(new_w)
+
+# Resize the image
+img = cv2.resize(img, (new_w, new_h), interpolation=cv2.INTER_CUBIC)
+print(f"Resized image to: {img.shape} (model-compatible dimensions)")
+
+# Validate image dimensions
+if img is None or img.size == 0:
+    raise ValueError("Failed to load or process image")
+if img.shape[0] < 32 or img.shape[1] < 32:
+    raise ValueError(f"Image too small for processing: {img.shape}. Minimum size is 32x32 pixels.")
 
 # Use the CORRECT alphabets that match the pretrained models
 # The pretrained model expects: string.digits + string.ascii_lowercase

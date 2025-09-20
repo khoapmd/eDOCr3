@@ -1,0 +1,3 @@
+ID,type,flag,nominal,value,tolerance,upper_bound,lower_bound
+1,Length,True,20ood,20ood,general,,
+2,Length,True,175od 16010,175od 16010,general,,

@@ -1,0 +1,5 @@
+ID,type,flag,nominal,value,tolerance,upper_bound,lower_bound
+1,Length,True,02,02,general,,
+2,Length,True,mo2lb,mo2lb,general,,
+3,Length,True,tooo 3500020,tooo 3500020,general,,
+4,Length,True,o31d,o31d,general,,

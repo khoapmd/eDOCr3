@@ -1,0 +1,10 @@
+ID,type,flag,nominal,value,tolerance,upper_bound,lower_bound
+1,Length,True,0615,0615,general,,
+2,Length,True,700,700,general,,
+3,Length,True,d70501005,d70501005,general,,
+4,Length,True,06850,06850,general,,
+5,Length,True,rlooton0,rlooton0,general,,
+6,Length,True,i 615 600,i,,615,600
+7,Length,True,ra12,ra12,general,,
+8,Length,True,1600 1550,1600 1550,general,,
+9,Length,True,8120 8oo,8120 8oo,general,,
