@@ -38,11 +38,6 @@ uv venv
 
 2. Install eDOCr:
 
-#### Via PyPI
-```bash
-uv pip install eDOCr
-```
-
 #### From Source
 ```bash
 git clone https://github.com/khoapmd/eDOCr
